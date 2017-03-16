@@ -1,0 +1,18 @@
+before_install:
+  - sudo apt-get install libao-dev
+  - sudo apt-get install libcurl4-openssl-dev
+
+language: cpp
+
+compiler:
+    - gcc
+    - clang
+
+before_script:
+    - mkdir build
+    - cd build
+    - cmake ..
+
+script:
+    - make
+    - ./main
