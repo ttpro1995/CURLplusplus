@@ -5,8 +5,7 @@ before_install:
 language: cpp
 
 compiler:
-    - gcc
-    - clang
+    - g++
 
 before_script:
     - mkdir build
