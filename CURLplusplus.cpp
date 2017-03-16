@@ -42,10 +42,12 @@ std::string CURLplusplus::GET(const std::string& url)
         throw std::runtime_error(curl_easy_strerror(res));
     }
     curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
-    return ss.str();
+    std::string result = ss.str();
+    ss.str(""); // clear ss
+    return result;
 }
 
-void CURLplusplus::POSTjson(const std::string& url, const std::string jsonString){
+std::string CURLplusplus::POSTjson(const std::string& url, const std::string jsonString){
     CURL *curl;
     CURLcode res;
 
@@ -71,6 +73,8 @@ void CURLplusplus::POSTjson(const std::string& url, const std::string jsonString
         /*Set header*/
         /* pass our list of custom made headers */
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
 
         /* Perform the request, res will get the return code */
         res = curl_easy_perform(curl);
@@ -82,6 +86,9 @@ void CURLplusplus::POSTjson(const std::string& url, const std::string jsonString
         /* always cleanup */
         curl_slist_free_all(headers); /* free the header list */
         curl_easy_cleanup(curl);
+        std::string result = ss.str();
+        ss.str(""); // clear ss
+        return result;
     }
 }
 

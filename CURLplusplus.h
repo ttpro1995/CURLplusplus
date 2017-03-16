@@ -26,7 +26,7 @@ public:
      * @param jsonString: json as string
      * @return: void
      * */
-    void POSTjson(const std::string& url, const std::string jsonString);
+    std::string POSTjson(const std::string& url, const std::string jsonString);
 
     long GetHttpCode();
 
