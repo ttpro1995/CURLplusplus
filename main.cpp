@@ -27,6 +27,6 @@ int main() {
     std::string cat = jsonData["meow"].asString();
     std::cout << cat << std::endl;
 
-    client.PostJson("https://sleepy-hollows-65143.herokuapp.com/api/result/your_path", raw_json);
+    client.POSTjson("https://sleepy-hollows-65143.herokuapp.com/api/result/your_path", raw_json);
     return 0;
 }

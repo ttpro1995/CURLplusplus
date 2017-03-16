@@ -11,6 +11,6 @@ ENDIF(CURL_FOUND)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES main.cpp CURLplusplus.h
-        json/json-forwards.h json/json.h json/jsoncpp.cpp)
+        json/json-forwards.h json/json.h json/jsoncpp.cpp CURLplusplus.cpp)
 add_executable(main ${SOURCE_FILES})
 target_link_libraries(main ${CURL_LIBRARIES})
