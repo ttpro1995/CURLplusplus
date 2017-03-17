@@ -66,7 +66,7 @@ std::string CURLplusplus::POSTjson(const std::string& url, const std::string jso
            data. */
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         /* Now specify the POST data */
-        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonString);
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonString.c_str());
 
         /*Set header*/
         /* pass our list of custom made headers */
