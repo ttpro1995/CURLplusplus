@@ -4,9 +4,9 @@
 #include "utils.h"
 
 
-json parseJson(std::string raw_json){
+Json parseJson(std::string raw_json){
     // parse json example
-    json jsonData = json::parse(raw_json) ; // create json object
+    Json jsonData = Json::parse(raw_json) ; // create json object
     // feed string to jsonData
     return jsonData;
 };

@@ -10,14 +10,14 @@ int main() {
 
 
     // parse json example
-    json jsonData = parseJson(x); // create json object
+    Json jsonData = parseJson(x); // create json object
 
     // get the attribute out of json
     std::string origin = jsonData["origin"];
     std::cout << origin << std::endl;
 
     // create json
-    json cat_json;
+    Json cat_json;
     cat_json["unixtime"] = time(nullptr);
     cat_json["meow"] = "I am Pusheen the cat";
     cat_json["likes"] = {"cookies", "netflex"};
