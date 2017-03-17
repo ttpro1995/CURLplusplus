@@ -66,9 +66,7 @@ std::string CURLplusplus::POSTjson(const std::string& url, const std::string jso
            data. */
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         /* Now specify the POST data */
-        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "{\n"
-                "  \"meow\" : \"I am Stormy the cat\"\n"
-                "}");
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonString);
 
         /*Set header*/
         /* pass our list of custom made headers */
